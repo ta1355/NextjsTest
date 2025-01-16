@@ -1,12 +1,24 @@
+"use client";
 import style from "./page.module.css";
+import { useRouter } from "next/navigation";
+import { age, name } from "./data.js";
 
 export default function cart() {
+  const router = useRouter();
+
+  const handlelist = () => {
+    router.push("/list");
+  };
+
   return (
     <div className="title">
-      <h4>Cart</h4>
+      <h4 onClick={handlelist}>Cart</h4>
       <CartItem></CartItem>
       <CartItem></CartItem>
       <CartItem></CartItem>
+      <p>
+        {age} : {name}
+      </p>
     </div>
   );
 }
